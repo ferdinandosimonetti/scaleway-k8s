@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: emoji-ingress
+  namespace: emojivoto
+spec:
+  rules:
+  - host: emoji.439f5966-2b22-459f-945f-c038901d2945.nodes.k8s.fr-par.scw.cloud
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: web-svc
+            port:
+              number: 80
